@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.sounuo.jiwai"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/enter_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/DIMEN_48PX"
+        android:layout_marginTop="@dimen/DIMEN_34PX"
+        android:src="@drawable/ic_settings" />
+
+    <com.sounuo.jiwai.views.CircleImageView
+        android:id="@+id/civ_user_head"
+        android:layout_width="@dimen/DIMEN_280PX"
+        android:layout_height="@dimen/DIMEN_280PX"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/DIMEN_120PX"
+        android:src="@drawable/default_avatar"
+        app:border_color="@color/apricot_yellow"
+        app:border_width="@dimen/DIMEN_2PX" />
+
+    <LinearLayout
+        android:id="@+id/enter_edit_base_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/DIMEN_442PX"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tv_nick_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/default_user_name"
+                android:textColor="#BABEC6" />
+
+            <ImageView
+                android:id="@+id/iv_enter_edit"
+                android:layout_width="@dimen/DIMEN_42PX"
+                android:layout_height="@dimen/DIMEN_34PX"
+                android:layout_marginLeft="@dimen/DIMEN_10PX"
+                android:layout_toRightOf="@+id/user_name_tv"
+                android:background="#ff00ff"
+                android:src="@drawable/myspace_edit_selector" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_user_introduce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/DIMEN_40PX"
+            android:ellipsize="end"
+            android:maxEms="15"
+            android:singleLine="true"
+            android:text="@string/default_introduce"
+            android:textColor="@color/text_color1" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/me_select_tab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/DIMEN_130PX"
+        android:layout_below="@+id/enter_edit_base_info"
+        android:layout_marginTop="@dimen/DIMEN_118PX" >
+
+        <com.sounuo.jiwai.views.ItemLinearLayout
+            android:id="@+id/il_pic"
+            android:layout_width="@dimen/DIMEN_356PX"
+            android:layout_height="match_parent"
+            app:item_name_text="@string/il_pic_text"
+            app:item_select="true" />
+
+        <LinearLayout
+            android:layout_width="@dimen/DIMEN_6PX"
+            android:layout_height="match_parent"
+            android:gravity="bottom" >
+
+            <View
+                android:layout_width="@dimen/DIMEN_6PX"
+                android:layout_height="@dimen/DIMEN_100PX"
+                android:background="#ccd1d5" />
+        </LinearLayout>
+
+        <com.sounuo.jiwai.views.ItemLinearLayout
+            android:id="@+id/il_collection"
+            android:layout_width="@dimen/DIMEN_356PX"
+            android:layout_height="match_parent"
+            app:item_name_text="@string/il_collection_text" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/DIMEN_4PX"
+        android:layout_below="@+id/me_select_tab"
+        android:background="#ccd1d5" />
+
+    <FrameLayout
+        android:id="@+id/frame_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/me_select_tab"
+        android:layout_marginTop="@dimen/DIMEN_8PX"
+        android:numColumns="3" >
+    </FrameLayout>
+
+</RelativeLayout>

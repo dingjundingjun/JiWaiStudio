@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CropLib/CropLib.iml" filepath="$PROJECT_DIR$/CropLib/CropLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Jiwai/Jiwai.iml" filepath="$PROJECT_DIR$/Jiwai/Jiwai.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JiwaiStudio.iml" filepath="$PROJECT_DIR$/JiwaiStudio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+    </modules>
+  </component>
+</project>
