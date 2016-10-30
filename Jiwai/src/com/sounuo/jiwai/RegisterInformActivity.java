@@ -1,14 +1,5 @@
 package com.sounuo.jiwai;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ClipData;
@@ -29,8 +20,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListPopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,7 +33,6 @@ import com.sounuo.jiwai.utils.ActivityHelper;
 import com.sounuo.jiwai.utils.AppConstant;
 import com.sounuo.jiwai.utils.Debug;
 import com.sounuo.jiwai.utils.FileUtil;
-import com.sounuo.jiwai.utils.MD5;
 import com.sounuo.jiwai.utils.PersonalUtil;
 import com.sounuo.jiwai.utils.SharedPrefUtil;
 import com.sounuo.jiwai.utils.UploadUtil;
@@ -53,6 +41,14 @@ import com.sounuo.jiwai.utils.Util;
 import com.sounuo.jiwai.views.ChangeColorTextView;
 import com.sounuo.jiwai.views.CircleImageView;
 import com.sounuo.jiwai.views.MyCameraDialog;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * 获取用户头像，以及用户关注的栏目
@@ -102,10 +98,6 @@ public class RegisterInformActivity extends Activity implements
 	private TextView tvNickName;
 
 	private TextView tvIntroduce;
-
-	private LinearLayout enterEditBaseInfo;
-
-	private ImageView ivEnterEdit;
 
 	private Intent takePhotoIntent;
 
@@ -162,16 +154,13 @@ public class RegisterInformActivity extends Activity implements
 	private void initviews() {
 		gridView = (GridView) findViewById(R.id.column_grid_view);
 		tvNickName = (TextView) findViewById(R.id.user_name_tv);
-		enterEditBaseInfo = (LinearLayout) findViewById(R.id.enter_edit_base_info);
 		tvIntroduce = (TextView) findViewById(R.id.introduce_tv);
-		ivEnterEdit = (ImageView) findViewById(R.id.iv_enter_edit);
 		mPhotoView = (CircleImageView) findViewById(R.id.civ_user_head);
 		mEnterGreatWorld = (Button) findViewById(R.id.btn_enter_great_world);
 		mEnterGreatWorld.setOnClickListener(this);
 		mPhotoView.setOnClickListener(this);
 		progressDialog = new ProgressDialog(this);
 //		tvNickName.setText(personInfo.nickName);
-		enterEditBaseInfo.setOnClickListener(this);
 		BitmapUtils bitmapUtils = new BitmapUtils(RegisterInformActivity.this);
 		String imageUrl=personInfo.getPhotoPath();
 		bitmapUtils.display(mPhotoView , imageUrl);
@@ -441,10 +430,6 @@ public class RegisterInformActivity extends Activity implements
 			ActivityHelper.enterMainCatalog(this);
 			finish();
 			break;
-		case R.id.enter_edit_base_info:
-			ivEnterEdit.setImageResource(R.drawable.myspace_edit_pressed);
-			ActivityHelper.enterEdit(this);
-			break;
 		default:
 			break;
 		}
@@ -455,7 +440,6 @@ public class RegisterInformActivity extends Activity implements
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		ivEnterEdit.setImageResource(R.drawable.myspace_edit_normal);
 	}
 
 	class ColumnAdapter extends BaseAdapter {

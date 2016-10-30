@@ -1,39 +1,12 @@
 package com.sounuo.jiwai;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.params.HttpClientParams;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
-import org.apache.http.params.HttpProtocolParams;
-import org.apache.http.protocol.HTTP;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.TextWatcher;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -55,6 +28,28 @@ import com.sounuo.jiwai.utils.PersonalUtil;
 import com.sounuo.jiwai.utils.SharedPrefUtil;
 import com.sounuo.jiwai.utils.StatusBarUtil;
 import com.sounuo.jiwai.utils.Util;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.params.HttpClientParams;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.params.HttpProtocolParams;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 登录界面
@@ -105,13 +100,13 @@ public class LoginActivity extends Activity implements OnClickListener {
 		mLoginRegisterTextView = (TextView) findViewById(R.id.login_register);
 		
 		
-        /*给TextView中文字设置下划线，颜色*/
+        /*给TextView中文字设置下划线，颜色*//*
         SpannableString spannableString = new SpannableString("创建账号");
         UnderlineSpan underlineSpan = new UnderlineSpan();
         spannableString.setSpan(underlineSpan, 0, 4, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
         ForegroundColorSpan colorSpan = new ForegroundColorSpan(Color.parseColor("#FFA589"));
         spannableString.setSpan(colorSpan, 0, 4, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-        mLoginRegisterTextView.setText(spannableString);
+        mLoginRegisterTextView.setText(spannableString);*/
 		
 		
 		mLoginProgressBar = (ProgressBar) findViewById(R.id.login_progressbar);

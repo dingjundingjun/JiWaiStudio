@@ -5,15 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#F5F5F5"
     android:orientation="vertical"
-    tools:context="com.org.great.wrold.activity.RegisterInformActivity" >
+    tools:context="com.org.great.wrold.activity.RegisterInformActivity">
 
     <RelativeLayout
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/DIMEN_130PX"
-        android:orientation="vertical" >
+        android:layout_height="@dimen/DIMEN_138PX"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_register_title"
@@ -21,15 +21,14 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/app_name"
-            android:textColor="#FC2225" />
+            android:textColor="#F34558"
+            android:textSize="@dimen/text_size_48" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/DIMEN_4PX"
+            android:layout_height="@dimen/DIMEN_1PX"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:background="@color/line_color" />
+            android:background="@color/line_color_gray_light" />
     </RelativeLayout>
 
     <com.sounuo.jiwai.views.CircleImageView
@@ -43,104 +42,99 @@
         app:border_color="@color/apricot_yellow"
         app:border_width="@dimen/DIMEN_2PX" />
 
-    <LinearLayout
-        android:id="@+id/enter_edit_base_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rl_title"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/DIMEN_442PX"
-        android:gravity="center_horizontal"
-        android:orientation="vertical" >
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:id="@+id/user_name_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/default_user_name"
-                android:textColor="#BABEC6" />
-
-            <ImageView
-                android:background="#ff00ff"
-                android:id="@+id/iv_enter_edit"
-                android:layout_width="@dimen/DIMEN_42PX"
-                android:layout_height="@dimen/DIMEN_34PX"
-                android:layout_marginLeft="@dimen/DIMEN_10PX"
-                android:layout_toRightOf="@+id/user_name_tv"
-                android:src="@drawable/myspace_edit_selector" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/introduce_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/DIMEN_40PX"
-            android:ellipsize="end"
-            android:maxEms="15"
-            android:singleLine="true"
-            android:text="@string/default_introduce"
-            android:textColor="@color/text_color1" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/DIMEN_4PX"
-        android:layout_below="@+id/enter_edit_base_info"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/DIMEN_148PX"
-        android:background="@color/line_color" />
 
     <TextView
-        android:id="@+id/tv_recommend"
+        android:id="@+id/user_name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rl_title"
+        android:layout_below="@+id/civ_user_head"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/DIMEN_764PX"
-        android:text="@string/recommend_str"
-        android:textColor="@color/text_color2"
-        android:textSize="@dimen/text_size_48" />
+        android:layout_marginTop="@dimen/DIMEN_47PX"
+        android:text="@string/default_user_name"
+        android:textColor="@color/text_color_gray"
+        android:textSize="@dimen/text_size_33" />
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/introduce_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/user_name_tv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/DIMEN_33PX"
+        android:ellipsize="end"
+        android:maxEms="15"
+        android:singleLine="true"
+        android:text="@string/default_introduce"
+        android:textColor="#0C0C0C"
+        android:textSize="@dimen/text_size_45" />
+
+
+    <LinearLayout
+        android:id="@+id/tv_recommend"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/rl_bottom_bar"
-        android:layout_below="@+id/tv_recommend" >
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/introduce_tv"
+        android:layout_marginLeft="@dimen/DIMEN_30PX"
+        android:layout_marginRight="@dimen/DIMEN_30PX"
+        android:layout_marginTop="@dimen/DIMEN_108PX"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <GridView
-            android:id="@+id/column_grid_view"
-            android:layout_width="match_parent"
+        <View
+            android:layout_width="@dimen/DIMEN_300PX"
+            android:layout_height="@dimen/DIMEN_2PX"
+            android:layout_gravity="center_vertical"
+            android:background="@color/line_color_gray_light" />
+
+        <TextView
+            android:id="@+id/login_other"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:numColumns="4" />
-    </RelativeLayout>
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/DIMEN_30PX"
+            android:layout_marginRight="@dimen/DIMEN_30PX"
+            android:text="@string/recommend_str"
+            android:textColor="#95aac2"
+            android:textSize="@dimen/text_size_33" />
+
+        <View
+            android:layout_width="@dimen/DIMEN_300PX"
+            android:layout_height="@dimen/DIMEN_2PX"
+            android:layout_gravity="center_vertical"
+            android:background="@color/line_color_gray_light" />
+    </LinearLayout>
+
+
+    <GridView
+        android:id="@+id/column_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rl_bottom_bar"
+        android:layout_below="@+id/tv_recommend"
+        android:layout_marginTop="@dimen/DIMEN_80PX"
+        android:numColumns="4" />
 
     <RelativeLayout
         android:id="@+id/rl_bottom_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/DIMEN_280PX"
-        android:layout_alignParentBottom="true" >
+        android:layout_height="@dimen/DIMEN_180PX"
+        android:layout_alignParentBottom="true"
+        android:background="#EEEEEE">
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/DIMEN_4PX"
-            android:background="@color/line_color" />
+            android:layout_height="@dimen/DIMEN_1PX"
+            android:background="#4E6f90B6" />
 
         <Button
             android:id="@+id/btn_enter_great_world"
-            android:layout_width="@dimen/DIMEN_530PX"
-            android:layout_height="@dimen/DIMEN_120PX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:background="@drawable/enter_jiwai"
+            android:background="@drawable/jiwai_btn"
             android:text="@string/enter_great_world"
-            android:textColor="@color/title" />
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/text_size_48" />
     </RelativeLayout>
 
 </RelativeLayout>

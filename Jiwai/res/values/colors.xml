@@ -31,9 +31,9 @@
     <color name="user_comment_text_color">#ffff</color>
 
     <!-- 字体的颜色 -->
-    <color name="text_color_gray">#a0a0a0</color>
+    <color name="text_color_gray">#C0CFDD</color>
     <!-- 线条的颜色 -->
-    <color name="line_color_gray_light">#ccd1d5</color>
+    <color name="line_color_gray_light">#6F90B6</color>
     <color name="line_color_gray_dark">#95989a</color>
     
     <!-- 登陆按钮的颜色 -->
