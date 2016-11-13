@@ -1,20 +1,10 @@
 package com.sounuo.jiwai.fragments;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -29,7 +19,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -38,22 +27,26 @@ import android.widget.Toast;
 import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.bitmap.BitmapDisplayConfig;
 import com.sounuo.jiwai.R;
-import com.sounuo.jiwai.RegisterInformActivity;
 import com.sounuo.jiwai.data.PersonalInfoPojo;
 import com.sounuo.jiwai.data.ReadTitleData;
 import com.sounuo.jiwai.utils.ActivityHelper;
 import com.sounuo.jiwai.utils.AppConstant;
 import com.sounuo.jiwai.utils.FileUtil;
-import com.sounuo.jiwai.utils.MD5;
 import com.sounuo.jiwai.utils.PersonalUtil;
-import com.sounuo.jiwai.utils.SharedPrefUtil;
 import com.sounuo.jiwai.utils.UploadUtil;
 import com.sounuo.jiwai.utils.UploadUtil.OnUploadProcessListener;
 import com.sounuo.jiwai.utils.Util;
-import com.sounuo.jiwai.views.ChangeColorTextView;
 import com.sounuo.jiwai.views.CircleImageView;
 import com.sounuo.jiwai.views.ItemLinearLayout;
 import com.sounuo.jiwai.views.MyCameraDialog;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class MeFragment extends Fragment implements OnClickListener, OnUploadProcessListener{
     private static final int REQUEST_CODE_CAMERA_WITH_DATA = 1001;
@@ -78,6 +71,7 @@ public class MeFragment extends Fragment implements OnClickListener, OnUploadPro
     
 	private ItemLinearLayout itemPic;
 	private ItemLinearLayout itemCollection;
+	private ItemLinearLayout itemAttention;
 	private GridView gvCollection;
 	private List<ReadTitleData> readTitleDatas;
 	private Boolean isTest=true;
@@ -87,10 +81,12 @@ public class MeFragment extends Fragment implements OnClickListener, OnUploadPro
     private int mFrontFragment = -1;
     private final int PIC = 1;
     private final int COLLECTION = 2;
+    private final int ATTENTION = 3;
     private FragmentManager mFragmentManager = null;
     private FragmentTransaction mTransaction = null;
 	private MeCollectionFragment mCollectionFragment;
 	private MePicFragment mPicFragment;
+	private MeAttentionFragment mAttentionFragment;
 	private FrameLayout frameContent;
 
 	private Toast mToast;
@@ -100,7 +96,9 @@ public class MeFragment extends Fragment implements OnClickListener, OnUploadPro
 	private PersonalInfoPojo personInfo;
 
 	private ProgressDialog progressDialog;
-	
+
+
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -140,10 +138,8 @@ public class MeFragment extends Fragment implements OnClickListener, OnUploadPro
         FileOutputStream outputStream = null;
         InputStream inputStream = null;
         try {
-            outputStream = context.getContentResolver()
-                    .openAssetFileDescriptor(outputUri, "rw").createOutputStream();
-            inputStream = context.getContentResolver().openInputStream(
-                    inputUri);
+            outputStream = context.getContentResolver().openAssetFileDescriptor(outputUri, "rw").createOutputStream();
+            inputStream = context.getContentResolver().openInputStream(inputUri);
 
             final byte[] buffer = new byte[16 * 1024];
             int length;
@@ -217,9 +213,11 @@ public class MeFragment extends Fragment implements OnClickListener, OnUploadPro
 		
 		mCollectionFragment = new MeCollectionFragment();
 		mPicFragment = new MePicFragment();
+		mAttentionFragment = new MeAttentionFragment();
 		mFragmentList.add(mCollectionFragment);
 		mFragmentList.add(mPicFragment);
-		
+		mFragmentList.add(mAttentionFragment);
+
 		personInfo = PersonalUtil.getPersonInfo(getActivity());
 		BitmapUtils bitmapUtils = new BitmapUtils(getActivity());
 		String imageUrl=personInfo.getPhotoPath();
@@ -228,11 +226,17 @@ public class MeFragment extends Fragment implements OnClickListener, OnUploadPro
 		setDefaultFragment();
 		showPicNums();
 		showCollectionNums();
+		showAttentionNums();
 		progressDialog = new ProgressDialog(getActivity());
 		return inflate;
 	}
-	
-    private static String pathForTempPhoto(Context context, String fileName) {
+
+	private void showAttentionNums() {
+			// TODO Auto-generated method stub
+			itemAttention.setItemNumText("14");
+	}
+
+	private static String pathForTempPhoto(Context context, String fileName) {
         final File dir = new File(Environment.getExternalStorageDirectory() + File.separator+ "新奇葩");
         dir.mkdirs();
         final File f = new File(dir, fileName);
@@ -417,46 +421,56 @@ public class MeFragment extends Fragment implements OnClickListener, OnUploadPro
 	private void initViews(View inflate) {
 		itemCollection = (ItemLinearLayout) inflate.findViewById(R.id.il_collection);
 		itemPic = (ItemLinearLayout) inflate.findViewById(R.id.il_pic);
+		itemAttention = (ItemLinearLayout) inflate.findViewById(R.id.il_attention);
 		enterSetting = (ImageView) inflate.findViewById(R.id.enter_setting);
 		headImageView = (CircleImageView) inflate.findViewById(R.id.civ_user_head);
 		frameContent = (FrameLayout) inflate.findViewById(R.id.frame_content);
 		enterSetting.setOnClickListener(this);
 		itemCollection.setOnClickListener(this);
+		itemAttention.setOnClickListener(this);
 		itemPic.setOnClickListener(this);
 		headImageView.setOnClickListener(this);
         mItemList.add(itemCollection);
         mItemList.add(itemPic);
+        mItemList.add(itemAttention);
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 		int id = v.getId();
 		switch (id) {
-		case R.id.il_pic:
-			// 获取收藏的照片信息
-            if (mFrontFragment != PIC) {
-                mFrontFragment = PIC;
-                changeFragment();
-            }
-			break;
-		case R.id.il_collection:
-			// 获取用户收藏信息，展示应该是一个listview之类的，需要等待设计
-            if (mFrontFragment != COLLECTION) {
-                mFrontFragment = COLLECTION;
-                changeFragment();
-            }
-			break;
-		case R.id.enter_setting:
-			ActivityHelper.enterSetting(getActivity());
-			break;
-		case R.id.civ_user_head:
-			//仿联系人代码
-			setCrop();
-			break;
-		default:
-			break;
+			case R.id.il_pic:
+				// 获取收藏的照片信息
+				if (mFrontFragment != PIC) {
+					mFrontFragment = PIC;
+					changeFragment();
+				}
+				break;
+			case R.id.il_collection:
+				// 获取用户收藏信息，展示应该是一个listview之类的，需要等待设计
+				if (mFrontFragment != COLLECTION) {
+					mFrontFragment = COLLECTION;
+					changeFragment();
+				}
+				break;
+			case R.id.il_attention:
+				// 获取用户收藏信息，展示应该是一个listview之类的，需要等待设计
+				if (mFrontFragment != ATTENTION) {
+					mFrontFragment = ATTENTION;
+					changeFragment();
+				}
+				break;
+			case R.id.enter_setting:
+				ActivityHelper.enterSetting(getActivity());
+				break;
+			case R.id.civ_user_head:
+				//仿联系人代码
+				setCrop();
+				break;
+			default:
+				break;
 		}
-        changeTabViewStatus(id);
+		changeTabViewStatus(id);
 	}
 	
     private void changeFragment() {
@@ -475,6 +489,13 @@ public class MeFragment extends Fragment implements OnClickListener, OnUploadPro
             }
             mTransaction.replace(R.id.frame_content, mPicFragment);
         }
+		else if(mFrontFragment == ATTENTION)
+		{
+			if (mAttentionFragment == null) {
+				mAttentionFragment = new MeAttentionFragment();
+			}
+			mTransaction.replace(R.id.frame_content, mAttentionFragment);
+		}
         mTransaction.commit();
     }
 	

@@ -1,7 +1,5 @@
 package com.sounuo.jiwai;
 
-import java.util.ArrayList;
-import java.util.List;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -9,23 +7,24 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.View;
 
 import com.sounuo.jiwai.data.PersonalInfoPojo;
-import com.sounuo.jiwai.fragments.ReadFragment;
 import com.sounuo.jiwai.fragments.MeFragment;
+import com.sounuo.jiwai.fragments.ReadFragment;
 import com.sounuo.jiwai.utils.Debug;
 import com.sounuo.jiwai.utils.PersonalUtil;
 import com.sounuo.jiwai.utils.Util;
 import com.sounuo.jiwai.views.TabView;
 import com.umeng.comm.core.CommunitySDK;
 import com.umeng.comm.core.beans.CommUser;
-import com.umeng.comm.core.beans.Source;
 import com.umeng.comm.core.constants.ErrorCode;
 import com.umeng.comm.core.impl.CommunityFactory;
 import com.umeng.comm.core.login.LoginListener;
 import com.umeng.simplify.ui.fragments.CommunityMainFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SuppressLint("NewApi")
 public class MainCatalogActivity extends FragmentActivity implements View.OnClickListener {

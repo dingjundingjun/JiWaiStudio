@@ -11,9 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/DIMEN_48PX"
-        android:layout_marginTop="@dimen/DIMEN_34PX"
-        android:src="@drawable/ic_settings" />
+        android:layout_marginRight="@dimen/DIMEN_43PX"
+        android:layout_marginTop="@dimen/DIMEN_43PX"
+        android:src="@drawable/ic_settings_selector" />
 
     <com.sounuo.jiwai.views.CircleImageView
         android:id="@+id/civ_user_head"
@@ -46,7 +46,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/default_user_name"
-                android:textColor="#BABEC6" />
+                android:textSize="@dimen/text_size_45"
+                android:textColor="#0C0C0C" />
 
             <ImageView
                 android:id="@+id/iv_enter_edit"
@@ -54,8 +55,7 @@
                 android:layout_height="@dimen/DIMEN_34PX"
                 android:layout_marginLeft="@dimen/DIMEN_10PX"
                 android:layout_toRightOf="@+id/user_name_tv"
-                android:background="#ff00ff"
-                android:src="@drawable/myspace_edit_selector" />
+                android:src="@drawable/pencil" />
         </LinearLayout>
 
         <TextView
@@ -66,8 +66,9 @@
             android:ellipsize="end"
             android:maxEms="15"
             android:singleLine="true"
+            android:textSize="@dimen/text_size_33"
             android:text="@string/default_introduce"
-            android:textColor="@color/text_color1" />
+            android:textColor="#C0CFDD" />
     </LinearLayout>
 
 
@@ -76,38 +77,39 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/DIMEN_130PX"
         android:layout_below="@+id/enter_edit_base_info"
-        android:layout_marginTop="@dimen/DIMEN_118PX" >
+        android:layout_marginTop="@dimen/DIMEN_92PX" >
 
         <com.sounuo.jiwai.views.ItemLinearLayout
             android:id="@+id/il_pic"
-            android:layout_width="@dimen/DIMEN_356PX"
+            android:layout_marginLeft="@dimen/DIMEN_273PX"
+            android:layout_width="@dimen/DIMEN_93PX"
             android:layout_height="match_parent"
             app:item_name_text="@string/il_pic_text"
             app:item_select="true" />
 
-        <LinearLayout
-            android:layout_width="@dimen/DIMEN_6PX"
-            android:layout_height="match_parent"
-            android:gravity="bottom" >
-
-            <View
-                android:layout_width="@dimen/DIMEN_6PX"
-                android:layout_height="@dimen/DIMEN_100PX"
-                android:background="#ccd1d5" />
-        </LinearLayout>
 
         <com.sounuo.jiwai.views.ItemLinearLayout
             android:id="@+id/il_collection"
-            android:layout_width="@dimen/DIMEN_356PX"
+            android:layout_width="@dimen/DIMEN_93PX"
             android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/DIMEN_143PX"
             app:item_name_text="@string/il_collection_text" />
+
+        <com.sounuo.jiwai.views.ItemLinearLayout
+            android:id="@+id/il_attention"
+            android:layout_width="@dimen/DIMEN_93PX"
+            android:layout_marginLeft="@dimen/DIMEN_143PX"
+            android:layout_height="match_parent"
+            app:item_name_text="@string/il_attention_text" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/DIMEN_4PX"
+        android:layout_marginRight="@dimen/DIMEN_30PX"
+        android:layout_marginLeft="@dimen/DIMEN_30PX"
+        android:layout_height="@dimen/DIMEN_1PX"
         android:layout_below="@+id/me_select_tab"
-        android:background="#ccd1d5" />
+        android:background="#9A6F90B6" />
 
     <FrameLayout
         android:id="@+id/frame_content"

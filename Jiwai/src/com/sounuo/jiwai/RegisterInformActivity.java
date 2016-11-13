@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -20,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListPopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,7 +38,6 @@ import com.sounuo.jiwai.utils.SharedPrefUtil;
 import com.sounuo.jiwai.utils.UploadUtil;
 import com.sounuo.jiwai.utils.UploadUtil.OnUploadProcessListener;
 import com.sounuo.jiwai.utils.Util;
-import com.sounuo.jiwai.views.ChangeColorTextView;
 import com.sounuo.jiwai.views.CircleImageView;
 import com.sounuo.jiwai.views.MyCameraDialog;
 
@@ -504,25 +503,13 @@ public class RegisterInformActivity extends Activity implements
 
 		@Override
 		public View getView(final int position, View convertView,
-				ViewGroup parent) {
+							ViewGroup parent) {
 			ColumnBean columnBean = mColumnBeans.get(position);
 			LayoutInflater layoutInflater = LayoutInflater.from(mContext);
-			View view = layoutInflater.inflate(R.layout.column_grid_view_item,null);
-			final ChangeColorTextView columnInfoTextView = (ChangeColorTextView) view.findViewById(R.id.column_info_tv);
-			columnInfoTextView.setText(columnBean.getTitle());
-			columnInfoTextView.setIconColor(Color.parseColor(colors[position]));
-			columnInfoTextView.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					if (getAttentionSize() <= 1) {
-						Toast.makeText(RegisterInformActivity.this,"最少需要关注一个栏目哦", Toast.LENGTH_SHORT).show();
-						return;
-					}
-					columnInfoTextView.changeSelectColor();
-					mColumnBeans.get(position).setIsChecked(columnInfoTextView.isSelected());
-					checkSparseBooleanArray.put(position,columnInfoTextView.isSelected());
-				}
-			});
+			View view = layoutInflater.inflate(R.layout.column_grid_view_item, null);
+			ImageView columnCover = (ImageView) view.findViewById(R.id.column_cover);
+			TextView columnTitle = (TextView) view.findViewById(R.id.column_title);
+			columnTitle.setText(columnBean.getTitle());
 			return view;
 		}
 	}

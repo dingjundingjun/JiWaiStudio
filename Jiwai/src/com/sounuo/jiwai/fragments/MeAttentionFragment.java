@@ -1,7 +1,5 @@
 package com.sounuo.jiwai.fragments;
 
-import java.util.ArrayList;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,12 +10,14 @@ import android.widget.ImageView;
 
 import com.sounuo.jiwai.R;
 
+import java.util.ArrayList;
+
 /**
  * 展示收藏的图片
  * @author gq
  *
  */
-public class MePicFragment extends Fragment {
+public class MeAttentionFragment extends Fragment {
 	
 	private boolean Test=true;
 	private GridView GridViewPicCollection;

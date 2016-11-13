@@ -112,7 +112,17 @@
         android:layout_above="@+id/rl_bottom_bar"
         android:layout_below="@+id/tv_recommend"
         android:layout_marginTop="@dimen/DIMEN_80PX"
-        android:numColumns="4" />
+        android:cacheColorHint="#00000000"
+        android:fadingEdge="none"
+        android:horizontalSpacing="@dimen/DIMEN_12PX"
+        android:numColumns="3"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:paddingEnd="@dimen/DIMEN_54PX"
+        android:paddingStart="@dimen/DIMEN_54PX"
+        android:scrollbarStyle="outsideOverlay"
+        android:splitMotionEvents="false"
+        android:verticalSpacing="@dimen/DIMEN_12PX" />
 
     <RelativeLayout
         android:id="@+id/rl_bottom_bar"

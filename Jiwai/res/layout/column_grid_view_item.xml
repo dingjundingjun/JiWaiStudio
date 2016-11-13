@@ -1,18 +1,42 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:jw="http://schemas.android.com/apk/res/com.sounuo.jiwai"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="@dimen/DIMEN_332PX"
+    android:layout_height="@dimen/DIMEN_332PX">
 
-    <com.sounuo.jiwai.views.ChangeColorTextView
-        android:id="@+id/column_info_tv"
-        android:layout_width="@dimen/DIMEN_350PX"
-        android:layout_height="@dimen/DIMEN_250PX"
-        android:layout_weight="1"
-        android:padding="5dp"
-        jw:check_alpha="255"
-        jw:check_color="@color/apricot_yellow"
-        jw:check_icon="@drawable/icon_column_item"
-        jw:text_color="@color/white"
-        jw:text_size="@dimen/text_size_42"/>
+    <ImageView
+        android:id="@+id/column_cover"
+        android:layout_width="@dimen/DIMEN_332PX"
+        android:layout_height="@dimen/DIMEN_332PX"
+        android:background="@drawable/default_avatar" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/DIMEN_80PX"
+        android:layout_alignParentBottom="true"
+        android:background="#73000000" />
+
+    <TextView
+        android:id="@+id/column_title"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/DIMEN_80PX"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="title"
+        android:textColor="#FEFEFF"
+        android:textSize="@dimen/text_size_33" />
+
+    <CheckBox
+        android:id="@+id/cbCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="@dimen/DIMEN_20PX"
+        android:layout_marginTop="@dimen/DIMEN_20PX"
+        android:background="@drawable/item_checked"
+        android:button="@null"
+        android:focusable="false"
+        android:visibility="visible" />
 
 </RelativeLayout>
